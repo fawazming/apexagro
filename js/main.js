@@ -4,9 +4,9 @@
 (function () {
   'use strict';
 
-  var PHONE_DISPLAY = '+234 803 000 0000';
-  var PHONE_TEL = '+2348030000000';
-  var WHATSAPP = '2348030000000';
+  var PHONE_DISPLAY = '+234 806 342 7928';
+  var PHONE_TEL = '+2348063427928';
+  var WHATSAPP = '2348063427928';
 
   /* ---------------- Spinner ---------------- */
   var spinner = document.getElementById('spinner');
