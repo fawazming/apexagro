@@ -1,0 +1,28 @@
+{
+  "name": "Apex Globatech Agro Ltd",
+  "short_name": "Apex Agro",
+  "description": "Quality planting materials, farm establishment, agricultural consultancy and agro-support services. Based in Remo Sagamu, Ogun State, Nigeria.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B5E2A",
+  "theme_color": "#0B5E2A",
+  "categories": ["agriculture", "business", "shopping"],
+  "icons": [
+    { "src": "favicon/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "favicon/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Planting Materials",
+      "url": "./products.html#planting-materials",
+      "description": "View quality planting materials"
+    },
+    {
+      "name": "Agricultural Services",
+      "url": "./services.html#services",
+      "description": "Explore our farm services"
+    }
+  ]
+}

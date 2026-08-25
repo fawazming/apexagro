@@ -1,0 +1,134 @@
+/* Apex Globatech Agro — Custom styles (Tailwind CDN + brand layer) */
+
+:root {
+  --forest: #0B5E2A;
+  --agri: #1D7A34;
+  --leaf: #8DC63F;
+  --gold: #F4C430;
+  --ivory: #F7F7F2;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  font-family: 'Lato', system-ui, -apple-system, sans-serif;
+  color: #1f2937;
+  background: var(--ivory);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading { font-family: 'Poppins', sans-serif; }
+
+/* ---------- Spinner ---------- */
+.spinner-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--forest);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.25rem;
+  transition: opacity .5s ease, visibility .5s ease;
+}
+.spinner-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.spin-ring {
+  width: 88px; height: 88px; border-radius: 9999px;
+  border: 4px solid rgba(141,198,63,.25);
+  border-top-color: var(--gold);
+  animation: spin 1s linear infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+.spin-ring img { width: 52px; height: 52px; animation: breathe 1.6s ease-in-out infinite; }
+.spinner-bar { width: 150px; height: 4px; border-radius: 9999px; background: rgba(255,255,255,.15); overflow: hidden; }
+.spinner-bar span { display:block; height:100%; width:40%; background: var(--gold); border-radius:9999px; animation: load 1.2s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes breathe { 0%,100%{transform:scale(.92);opacity:.9} 50%{transform:scale(1.05);opacity:1} }
+@keyframes load { 0%{transform:translateX(-110%)} 100%{transform:translateX(280%)} }
+.spinner-screen p { color:#fff; font-family:'Poppins'; font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem; }
+
+/* ---------- Header ---------- */
+.nav-link { position: relative; font-family:'Poppins'; font-weight:500; }
+.nav-link::after {
+  content:""; position:absolute; left:0; bottom:-4px; height:2px; width:0;
+  background: var(--gold); transition: width .3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+/* ---------- Buttons ---------- */
+.btn-gold {
+  background: var(--gold); color:#0B5E2A; font-family:'Poppins'; font-weight:600;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -8px rgba(244,196,48,.6); }
+.btn-green {
+  background: var(--forest); color:#fff; font-family:'Poppins'; font-weight:600;
+  transition: transform .2s ease, background .2s ease;
+}
+.btn-green:hover { background: #0d6b31; transform: translateY(-2px); }
+
+/* ---------- Reveal animations ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay:.1s } .reveal-delay-2 { transition-delay:.2s }
+.reveal-delay-3 { transition-delay:.3s } .reveal-delay-4 { transition-delay:.4s }
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(141,198,63,.25), transparent 60%),
+    linear-gradient(135deg, #0B5E2A 0%, #0d6b31 45%, #1D7A34 100%);
+}
+.hero-float { animation: floaty 6s ease-in-out infinite; }
+@keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+/* ---------- Card hover ---------- */
+.card-hover { transition: transform .3s ease, box-shadow .3s ease; }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -18px rgba(11,94,42,.35); }
+
+/* ---------- Marquee / ticker ---------- */
+.marquee { overflow: hidden; }
+.marquee-track { display: flex; gap: 3rem; width: max-content; animation: marquee 28s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- Leaf pattern overlay ---------- */
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cpath d='M45 20c-12 5-14 16 0 22 14-6 12-17 0-22z' fill='%238DC63F' opacity='0.10'/%3E%3Ccircle cx='45' cy='58' r='3' fill='%231D7A34' opacity='0.10'/%3E%3C/svg%3E");
+}
+
+/* ---------- WhatsApp FAB ---------- */
+.wa-fab {
+  position: fixed; bottom: 1.4rem; right: 1.4rem; z-index: 60;
+  width: 58px; height: 58px; border-radius: 9999px;
+  background: #25D366; display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 10px 25px -6px rgba(37,211,102,.6);
+  transition: transform .2s ease;
+}
+.wa-fab:hover { transform: scale(1.08); }
+.wa-fab svg { width: 32px; height: 32px; fill: #fff; }
+.wa-pulse { animation: wapulse 2.2s infinite; }
+@keyframes wapulse {
+  0%{ box-shadow:0 0 0 0 rgba(37,211,102,.55);}
+  70%{ box-shadow:0 0 0 16px rgba(37,211,102,0);}
+  100%{ box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* ---------- Cookie consent ---------- */
+.cookie-bar {
+  position: fixed; left:0; right:0; bottom:0; z-index:80;
+  transform: translateY(110%); transition: transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.cookie-bar.show { transform: translateY(0); }
+
+/* ---------- Misc ---------- */
+.glass { backdrop-filter: blur(10px); background: rgba(255,255,255,.9); }
+.text-gold { color: var(--gold); }
+.bg-forest { background-color: var(--forest); }
+.bg-agri { background-color: var(--agri); }
+.bg-leaf { background-color: var(--leaf); }
+.bg-ivory { background-color: var(--ivory); }
+.border-gold { border-color: var(--gold); }
+.gradient-green { background: linear-gradient(135deg, #0B5E2A, #1D7A34); }
+[data-aos] { pointer-events: auto; }
+[x-cloak] { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  html { scroll-behavior: auto; }
+}
